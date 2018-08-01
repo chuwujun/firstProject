@@ -12,7 +12,12 @@ if __name__ == '__main__':
     #this is the filename
     label1=Label(frame1,text="filename:")
     label1.pack({'side':'left'}) 
-    entry1=Entry(frame1,text="output.txt")
+    entry1=Entry(frame1)
+    #you can not set entry default value by param text
+    entry1.config(text='output.txt')
+    content=StringVar()
+    content.set('output.txt')
+    entry1['textvariable']=content
     entry1.pack({'side':'left'})
     #this is the content that we need to save
     text1=Text(root,height=30)
