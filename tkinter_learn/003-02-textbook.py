@@ -1,6 +1,29 @@
 #this is a textbook which can write content to a file
 
 from Tkinter import *
+import tkMessageBox
+import os
+
+#read file and show its content on text
+def read_file():
+    filename=content.get()
+    if not os.path.exists(filename):
+        tkMessageBox.showinfo("warning","file "+filename+" does not exist.")
+        return
+    f=open(filename,'r')
+    file_content_list=f.readlines()
+    f.close()
+    file_content=''.join(file_content_list)
+    print file_content
+#
+def write_file():
+    pass
+
+#clear content of text
+def clear_text():
+    #this is to set entry is ""
+    #content.set("")
+    text1.delete(1.0,END)
 
 if __name__ == '__main__':
     #create the application
@@ -26,13 +49,13 @@ if __name__ == '__main__':
     frame3=Frame(root)
     frame3.pack({'side':'top'})
     #this button is to write file content
-    button1=Button(frame3,text="write")
+    button1=Button(frame3,text="write",command=write_file)
     button1.pack({'side':'left'})
     #this button is to read file to text
-    button4=Button(frame3,text="read")
+    button4=Button(frame3,text="read",command=read_file)
     button4.pack({'side':'left'})
     #this button is to clear text content
-    button2=Button(frame3,text="clear")
+    button2=Button(frame3,text="clear",command=clear_text)
     button2.pack({'side':'left'})
     #this content is to quit the GUI
     button3=Button(frame3,text="quit",command=quit)
