@@ -14,10 +14,23 @@ def read_file():
     file_content_list=f.readlines()
     f.close()
     file_content=''.join(file_content_list)
-    print file_content
-#
+    #clear the content in text
+    text1.delete(1.0,END)
+    #write file content to txt
+    text1.insert(1.0,file_content)
+    #print file_content
+
+#write text content to file
 def write_file():
-    pass
+    filename=content.get()
+    text_content=text1.get(1.0,END)
+    # judge path exist and make sure whether save or not
+    if os.path.exists(filename):
+         tkMessageBox.askyesno('file has exist','save or not?')
+    f=open(filename,'w')
+    f.write(text_content)
+    f.close()
+    print text_content
 
 #clear content of text
 def clear_text():
