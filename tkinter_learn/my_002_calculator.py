@@ -1,3 +1,5 @@
+#calculator : support two digits calculated
+
 from Tkinter import *
 
 output=""
@@ -61,8 +63,11 @@ def button_div_add():
     input_list.append('/')
 
 def button_clear():
+    global input_list
     input_list=[]
+    global tmp_symbol
     tmp_symbol=''
+    global output
     output=''
     e1.delete(0,END)
     content.set('')
