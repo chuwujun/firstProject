@@ -64,6 +64,7 @@ def button_clear():
     input_list=[]
     tmp_symbol=''
     output=''
+    e1.delete(0,END)
     content.set('')
 
 def button_getResult():
