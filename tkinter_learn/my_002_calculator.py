@@ -1,8 +1,17 @@
 from Tkinter import *
 
+input=""
+output=""
+output_list=[]
+
+def button_1_add():
+    pass
+
+
 root=Tk()
 root.title('calculator')
-e1=Entry(root)
+content=StringVar()
+e1=Entry(root,textvariable=content)
 e1.grid(row=0,columnspan=4)
 button1=Button(root,text='1',width=5,height=5)
 button1.grid(row=1,column=0)
@@ -36,5 +45,4 @@ button_get=Button(root,text='=',width=5,height=5)
 button_get.grid(row=4,column=2)
 button_div=Button(root,text='/',width=5,height=5)
 button_div.grid(row=4,column=3)
-
 mainloop()
