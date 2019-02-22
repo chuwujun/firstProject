@@ -24,7 +24,7 @@ def get_true_salary(salary):
     elif tax>80000:
         result=tax*0.45-15160
     
-    if tax<=5000:
+    if salary<=5000:
         result=0
     
     true_salary=salary-wuxianyijin-result
