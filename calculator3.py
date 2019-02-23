@@ -2,6 +2,7 @@
 import sys
 import csv
 import getopt
+import os
 
 cfg_file=""
 input_file=""
@@ -11,8 +12,14 @@ orgs,args=getopt.getopt(sys.argv[1:],'c:d:o:')
 for param,filename in orgs:
     if param=='-c':
         cfg_file=filename
+        if not os.path.exists(cfg_file):
+            print("not exist")
+            sys.exit(1)
     if param=='-d':
         input_file=filename
+        if not os.path.exists(input_file):
+            print("not exist")
+            sys.exit(1)
     if param=='-o':
         output_file=filename
 #print(cfg_file,input_file,output_file)
