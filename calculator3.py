@@ -3,6 +3,7 @@ import sys
 import csv
 import getopt
 import os
+import re
 
 cfg_file=""
 input_file=""
@@ -26,9 +27,20 @@ for param,filename in orgs:
 
 
 #get config file
-with open(cfg_file,'rb') as f:
+with open(cfg_file,'r') as f:
     cfg_list=f.readlines()
-cfg_num_list=[float(x.split('=')[1].strip()) for x in cfg_list if x.find('=') !=-1 ]
+cfg_num_list=[]
+for one in cfg_list:
+    one=str(one)
+    if one.find('=') != -1:
+        two=one.split('=')[1].strip()
+        two=two.replace("\\n","")
+        two=two.replace("'","")
+        #print(two)
+        #regex=re.compile(r'\d*\.\d*')
+        #m=regex.search(two)
+        cfg_num_list.append(float(two))
+#cfg_num_list=[float(x.split('=')[1].strip()) for x in cfg_list if x.find('=') !=-1 ]
 #for one in cfg_num_list:
 #    print(one)
 tax_min=cfg_num_list[0]
@@ -71,7 +83,7 @@ def get_info(id,salary):
     result=format('%.2f' %(result))
     return (id,sala,wuxianyijin,result,true_salary)
 #get user.csv
-with open(input_file,'rb') as f:
+with open(input_file,'r') as f:
     cf=csv.reader(f)
     user_list=list(cf)
 for one in user_list:
