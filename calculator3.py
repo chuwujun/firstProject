@@ -29,15 +29,14 @@ tax_max=cfg_num_list[1]
 tax_rate=0
 for i in range(2,8):
     tax_rate+=cfg_num_list[i]
-tax_rate=format('%.2f' %tax_rate)
-
 def get_info(id,salary):
     sala=salary
-    if salary<tax_min:
-        sala=tax_min
-    if salary>tax_min:
-        sala=tax_max
-    wuxianyijin=float(sala)*float(tax_rate)
+    salary=float(salary)
+    wuxianyijin=float(salary)*float(tax_rate)
+    if salary<float(tax_min):
+        wuxianyijin=float(tax_min)*float(tax_rate)
+    if salary>float(tax_max):
+        wuxianyijin=float(tax_max)*float(tax_rate)
     tax=salary-wuxianyijin-5000
     result=0
     
@@ -63,16 +62,17 @@ def get_info(id,salary):
     true_salary=format('%.2f' %(true_salary))
     wuxianyijin=format('%.2f' %(wuxianyijin))
     result=format('%.2f' %(result))
-    return (id,salary,wuxianyijin,result,true_salary)
+    return (id,sala,wuxianyijin,result,true_salary)
 #get user.csv
 with open(input_file,'rb') as f:
     cf=csv.reader(f)
     user_list=list(cf)
 for one in user_list:
     id=one[0]
-    salary=float(one[1])
+    salary=one[1]
     returns=get_info(id,salary)
     f=open(output_file,'a')
-    f.write(str(returns[0])+','+str(returns[1])+','+str(returns[2])+','+str(returns[3])+str(returns[4])+'/n')
+    f.write(str(returns[0])+','+str(returns[1])+','+str(returns[2])+','+str(returns[3])+','+str(returns[4]))
+    f.write("\n")
     f.close()
 
