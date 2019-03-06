@@ -30,12 +30,19 @@ def combine():
         ws3['D'+str(i)]=f[i-1]
 
     wb.save('/home/shiyanlou/Code/courses.xlsx')
+    
+    for one in a:
+        temp.append(one.split('/')[0])
+    temp=set(temp)
+    for one in temp:
+        wb_new=Workbook()
+        for row in wb.rows:
+            if row.split('/')
+        wb_new.save('/home/shiyanlou/Code/'+str(one)+'.xlsx')
 
 
-def split():
-    pass
+    
 
 
 if __name__ == '__main__':
     combine()
-    split()
