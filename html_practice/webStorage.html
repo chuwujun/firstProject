@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+    </head>
+    <body>
+        <h1>a simple web notebook</h1>
+        <textarea id="memo" cols='60' rows='6'></textarea><br />
+        <input type="button" value="新增留言" onclick="saveStorage('memo');" />
+        <input type="button" value="清除留言" onclick="clearStorage();" />
+        <input type="button" value="清除最后一个留言" onclick="clearLastStorage();" />
+        <hr />
+        <p id="msg"></p>
+        <script type='text/javascript'>
+            function saveStorage(id) {
+                var data=document.getElementById(id).value;
+                var time=new Date().toUTCString();
+                localStorage.setItem(time,data);
+                showMsg("msg");
+            }
+
+            function showMsg(id){
+                var result='<table border="1">';
+                for (var i=0;i<localStorage.length;i++) {
+                    var key=localStorage.key(i);
+                    var value=localStorage.getItem(key);
+                    result +="<tr><td>"+value+"</td><td>"+key+"</td></tr>";
+                }
+                result+="</table>"
+                var target=document.getElementById(id);
+                target.innerHTML=result;
+            }
+            showMsg("msg");
+              function clearStorage() {
+                  //清空数据
+                   localStorage.clear();
+                  //显示留言
+                   showMsg("msg");
+               }
+    //clearsingleStorage是一个删除单个数据的函数
+    function clearsingleStorage() {
+      localStorage.removeItem(localStorage.key(localStorage.length - 1));
+      //显示留言
+      showMsg("msg");
+    }
+        </script>
+    </body>
+</html>

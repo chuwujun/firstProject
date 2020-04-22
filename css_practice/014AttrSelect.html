@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <style type="text/css">
+            p {
+                color: blue;
+            }
+            p[title="one"] {
+                color:red;
+            }
+            p[title~="two"] {
+                color:green;
+            }
+            p[title|="three"] {
+                color:pink;
+            }
+        </style>
+    </head>
+    <body>
+        <p title="five">我爱学习</p>
+        <p title="one">我爱运动</p>
+        <p title="one two"我爱吃饭</p>
+        <p title="three-four">我爱睡觉</p>
+    </body>
+</html>

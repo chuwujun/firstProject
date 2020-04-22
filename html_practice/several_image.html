@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+    </head>
+    <body>
+        <canvas id='mycanvas' width='1314px' height='520px'>
+            对不起，您的浏览器不支持canvas
+        </canvas>
+        <script type='text/javascript'>
+            var myCanvas=document.getElementById('mycanvas');
+            var ctx=myCanvas.getContext("2d");
+            var image=new Image();
+            image.src="a.png";
+            image.onload=function() {
+                for (var i=0;i<5;i++) {
+                    ctx.drawImage(image,100+i*80,100+i*80);
+                }
+            };
+        </script>
+    </body>
+</html>

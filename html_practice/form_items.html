@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+    </head>
+    <body>
+        <form action='#' method="get" id="user_form">
+            First name:<input type="text" name="fname" /><br />
+            <input type="submit" value="提交" />
+        </form>
+        <p>
+            下面的输入在form之外，但仍旧是表单的一部分，first name和表单外的last name和表单外的last，
+            都会被提交。
+        </p>
+        Last name:<input type="text" name="lname" form="user_form" />
+    </body>
+</html>

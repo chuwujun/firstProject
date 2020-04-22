@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+    </head>
+    <body>
+        <canvas id="mycanvas" width="520px" height="1314px">
+            对不起，你的浏览器不支持canvas
+        </canvas>
+        <canvas id="mycanvas2" width="520px" height="1314px">
+            对不起，你的浏览器不支持canvas
+        </canvas>
+        <script type="text/javascript">
+            var myCanvas=document.getElementById("mycanvas");
+            var ctx=myCanvas.getContext("2d");
+            var gradient=ctx.createLinearGradient(0,0,170,0);
+            gradient.addColorStop(0,'red');
+            gradient.addColorStop("0.2",'orange');
+            gradient.addColorStop("0.5",'yellow');
+            gradient.addColorStop("0.7",'green');
+            gradient.addColorStop(1,'blue');
+            ctx.fillStyle=gradient;
+            ctx.fillRect(10,10,100,200);
+
+            var myCanvas2=document.getElementById("mycanvas2");
+            var ctx2=myCanvas2.getContext('2d');
+            var gradient2=ctx2.createRadialGradient(75,50,5,90,60,100);
+            gradient2.addColorStop("0.2",'orange');
+            gradient2.addColorStop("0.5",'yellow');
+            gradient2.addColorStop("0.7",'green');
+            gradient2.addColorStop(1,'blue');
+            ctx2.fillStyle=gradient2;
+            ctx2.fillRect(20,20,300,300);
+        </script>
+    </body>
+</html>

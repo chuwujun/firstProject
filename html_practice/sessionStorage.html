@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+    </head>
+    <body>
+        <script type="text/javascript">
+            if(sessionStorage.pagecount){
+                sessionStorage.pagecount=Number(sessionStorage.pagecount)+1;
+            }
+            else {
+                sessionStorage.pagecount=1;
+            }
+            document.write('你刷新了这个页面'+sessionStorage.pagecount);
+            </script>
+    </body>
+</html>
